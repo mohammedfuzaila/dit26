@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream IT 2K26 | Future Tech Fest</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Outfit:wght@300;400;500;700&family=Rubik+Glitch&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES & THEME --- */
+        :root {
+            --bg-dark: #030014;
+            --bg-deep: #02000d;
+            --primary: #00f3ff;
+            --secondary: #bc13fe;
+            --accent: #ff0055;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.15);
+
+            --neon-blue: 0 0 10px rgba(0, 243, 255, 0.6);
+            --neon-purple: 0 0 10px rgba(188, 19, 254, 0.6);
+
+            --transition-speed: 0.3s;
+        }
+
+        /* --- RESET & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(188, 19, 254, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 243, 255, 0.1) 0%, transparent 40%);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.0rem;
+        }
+
+        .font-glitch {
+            font-family: 'Rubik Glitch', system-ui;
+            letter-spacing: 3px;
+        }
+
+        .section-padding {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+            margin: 50px 0;
+        }
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-speed);
+            padding: 20px 0;
+        }
+
+        header.scrolled {
+            background: rgba(3, 0, 20, 0.85);
+            backdrop-filter: blur(15px);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            transition: var(--transition-speed);
+            opacity: 0.8;
+        }
+
+        .nav-link:hover {
+            opacity: 1;
+            color: var(--primary);
+            text-shadow: var(--neon-blue);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition-speed);
+            box-shadow: var(--neon-blue);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 50% 50%, rgba(3, 0, 20, 0.4), var(--bg-dark)),
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            animation: pulseBg 10s infinite alternate;
+        }
+
+        @keyframes pulseBg {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 50px;
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--primary);
+            z-index: -1;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            color: var(--bg-dark);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.6);
+        }
+
+        .btn-primary:hover::before {
+            width: 100%;
+        }
+
+        .btn-glow {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border: none;
+            color: white;
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(188, 19, 254, 0.6);
+        }
+
+        /* --- COUNTDOWN --- */
+        .countdown-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 50px;
+            justify-content: center;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            color: var(--text-main);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- SECTIONS COMMON --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-dim);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* --- LEADERSHIP CARDS --- */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .leader-card {
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .leader-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+            filter: grayscale(100%) contrast(1.2);
+        }
+
+        .leader-card:hover img {
+            filter: grayscale(0%) contrast(1);
+            transform: scale(1.05);
+        }
+
+        .leader-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 20px;
+            background: linear-gradient(to top, var(--bg-dark), transparent);
+            transform: translateY(20px);
+            transition: 0.4s;
+        }
+
+        .leader-card:hover .leader-info {
+            transform: translateY(0);
+        }
+
+        .leader-role {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .leader-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .leader-message {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: 0.4s;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .leader-card:hover .leader-message {
+            opacity: 1;
+            transform: translateY(0);
+            height: auto;
+            margin-top: 10px;
+        }
+
+        /* --- COORDINATORS --- */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .staff-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border-left: 3px solid var(--secondary);
+            transition: 0.3s;
+        }
+
+        .staff-card:hover {
+            transform: translateX(10px);
+            background: var(--glass-highlight);
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.1);
+        }
+
+        .staff-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+        }
+
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .student-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 16px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .student-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: 0.3s;
+        }
+
+        .student-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .student-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- TIMELINE --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--glass-border);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background: var(--bg-dark);
+            border: 2px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--glass-border);
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--glass-border) transparent transparent;
+        }
+
+        .right::after {
+            left: -8px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            position: relative;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--primary);
+            box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.05);
+        }
+
+        .timeline-time {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #02000d;
+            border-top: 1px solid var(--glass-border);
+            padding: 60px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--glass-border);
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        /* --- RESPONSIVE --- */
+        @media screen and (max-width: 1024px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 300px;
+                order: -1;
+                margin-bottom: 30px;
+            }
+
+            .font-glitch {
+                font-size: 2.5rem !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+                /* Prevent horizontal scroll from animations */
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(3, 0, 20, 0.95);
+                flex-direction: column;
+                padding: 30px;
+                text-align: center;
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid var(--glass-border);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.active {
+                display: flex;
+                animation: slideDown 0.3s ease forwards;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            /* Timeline Fixes */
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent var(--glass-border) transparent transparent;
+            }
+
+            .left::after,
+            .right::after {
+                left: 23px;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+            /* Grid Fixes */
+            .leadership-grid,
+            .staff-grid,
+            .events-grid,
+            .footer-content {
+                grid-template-columns: 1fr !important;
+                /* Force single column on mobile */
+            }
+
+            .section-padding {
+                padding: 60px 0;
+                margin: 50px 0;
+            }
+
+            /* Pamphlet Mobile */
+            .pamphlet-float.active {
+                width: 90%;
+                height: auto;
+                min-height: 400px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+
+            .countdown-container {
+                gap: 15px;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .event-card {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* --- PAMPHLET FLOATING CARD --- */
+        .pamphlet-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 80px;
+            height: 110px;
+            background: linear-gradient(135deg, var(--bg-dark), #1a1a2e);
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            z-index: 999;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-origin: bottom right;
+        }
+
+        .pamphlet-float:hover {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.6);
+        }
+
+        .pamphlet-float.active {
+            width: 300px;
+            height: 450px;
+            bottom: 50%;
+            right: 50%;
+            transform: translate(50%, 50%) rotate(0deg);
+            z-index: 2000;
+            border-color: var(--secondary);
+            box-shadow: 0 0 100px rgba(188, 19, 254, 0.5);
+        }
+
+        .pamphlet-content {
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: 0.3s;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .pamphlet-float.active .pamphlet-content {
+            opacity: 1;
+        }
+
+        .pamphlet-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            position: absolute;
+            transition: 0.3s;
+        }
+
+        .pamphlet-float.active .pamphlet-icon {
+            opacity: 0;
+        }
+
+        .close-pamphlet {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+            display: none;
+        }
+
+        .pamphlet-float.active .close-pamphlet {
+            display: block;
+        }
+
+        /* --- MODERN ABOUT SECTION --- */
+        .about-image {
+            perspective: 1000px;
+            position: relative;
+        }
+
+        .about-image img {
+            transition: transform 0.5s;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-image:hover img {
+            transform: rotateY(-10deg) rotateX(5deg) scale(1.02);
+            box-shadow: -20px 20px 50px rgba(0, 243, 255, 0.2);
+        }
+
+        /* --- EVENT CARD ENHANCEMENTS --- */
+        .event-card {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .event-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            z-index: 2;
+            backdrop-filter: blur(5px);
+        }
+
+        .event-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 0, 13, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 0.4s;
+            z-index: 3;
+            backdrop-filter: blur(3px);
+            padding: 20px;
+            text-align: center;
+            transform: translateY(100%);
+        }
+
+        .event-card:hover .event-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .event-info-item {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .event-info-item i {
+            color: var(--secondary);
+            margin-right: 8px;
+        }
+
+        /* --- TEAM IMAGES --- */
+        .staff-img-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--secondary);
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.3);
+            flex-shrink: 0;
+        }
+
+        .staff-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .student-img-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .student-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .student-card:hover .student-img-container img {
+            transform: scale(1.1);
+        }
+
+        /* --- EVENT FILTERING --- */
+        .event-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .event-card.hide {
+            display: none;
+        }
+
+        .event-card.show {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--bg-dark) !important;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+            border-color: var(--primary) !important;
+        }
+    </style>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-bolt"></i> DREAM IT <span style="color:var(--secondary)">'26</span>
+            </div>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="nav-link">HOME</a></li>
+                    <li><a href="#about" class="nav-link">ABOUT</a></li>
+                    <li><a href="#events" class="nav-link">EVENTS</a></li>
+                    <li><a href="#teams" class="nav-link">TEAM</a></li>
+                    <li><a href="#timeline" class="nav-link">SCHEDULE</a></li>
+                </ul>
+            </nav>
+            <div class="menu-btn" id="menuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">JANUARY 29, 2026</div>
+            <h1 class="hero-title">DREAM IT'26</h1>
+            <p class="hero-subtitle">Experience the next generation of technology, innovation, and creativity at the
+                biggest inter-college technical fest.</p>
+            <div class="flex-center" style="gap: 20px; flex-wrap: wrap;">
+                <a href="#register" class="btn btn-glow">REGISTER NOW</a>
+                <a href="#events" class="btn btn-primary">EXPLORE EVENTS</a>
+            </div>
+
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Mins</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Secs</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Floating Pamphlet Card -->
+    <div class="pamphlet-float" id="pamphletCard" style="display: none; opacity: 0; transition: opacity 0.5s;">
+        <i class="fa-solid fa-file-pdf pamphlet-icon"></i>
+        <div class="pamphlet-content">
+            <i class="fa-solid fa-xmark close-pamphlet" id="closePamphlet"></i>
+            <h3 style="color: var(--primary); margin-bottom: 10px;">FEST BROCHURE</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 20px;">Get all the details about events and rules.</p>
+            <a href="#" class="btn btn-glow" style="padding: 10px 20px; font-size: 0.9rem;">DOWNLOAD PDF</a>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-grid" style="display: block; text-align: center; max-width: 900px; margin: 0 auto;">
+                <div class="about-content">
+                    <div class="section-header" style="margin-bottom: 30px;">
+                        <h2 style="font-size: 2rem; color: var(--text-dim); margin-bottom: 10px;">WELCOME TO </i> DREAM
+                            IT<span style="color:var(--secondary)">'26</span> </h2>
+
+                        <div style="height: 4px; width: 100px; background: var(--secondary); margin: 0 auto 20px;">
+                        </div>
+                    </div>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dim); margin-bottom: 30px;">
+                        Ignite your passion for technology at <span
+                            style="color: var(--text-main); font-weight: 600;">Dream IT'26</span>, the ultimate
+                        convergence of innovation, creativity, and futuristic thinking.
+                        We bring together the brightest minds to compete, collaborate, and conquer the challenges of
+                        tomorrow.
+                        From coding marathons to robotics warfare, witness the future unfold right before your eyes.
+                    </p>
+
+                    <a href="#events" class="btn btn-primary" style="margin-top: 20px;">LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>FEATURED <span class="text-gradient">EVENTS</span></h2>
+                <p></p>
+            </div>
+
+            <div class="flex-center" style="gap: 15px; margin-bottom: 40px; flex-wrap: wrap;">
+                <button class="btn btn-primary filter-btn active" onclick="filterEvents('all')"
+                    style="padding: 10px 25px; font-size: 0.8rem;">ALL</button>
+                <button class="btn btn-primary filter-btn" onclick="filterEvents('technical')"
+                    style="padding: 10px 25px; font-size: 0.8rem; border-color: var(--glass-border); color: var(--text-dim);">TECHNICAL</button>
+                <button class="btn btn-primary filter-btn" onclick="filterEvents('non-technical')"
+                    style="padding: 10px 25px; font-size: 0.8rem; border-color: var(--glass-border); color: var(--text-dim);">NON-TECHNICAL</button>
+            </div>
+
+            <div class="events-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <!-- Event 1 -->
+                <div class="event-card glass-panel" data-category="non-technical" data-aos="fade-up"
+                    data-aos-delay="100" style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 10:45 AM</div>
+                    <div style="height: 200px; overflow: hidden; position: relative;">
+                        <img src="asset/Papper verse.jpeg"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Hackathon">
+                        <div class="event-overlay">
+                            <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
+                            <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> MULTIMEDIA HALL</div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i> TEAM OF 2</div>
+                            <a href="#register" class="btn btn-glow"
+                                style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
+                        </div>
+                    </div>
+                    <div style="padding: 25px;">
+                        <div style="color: greenyellow; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px;">
+                            NON-TECHNICAL</div>
+                        <h3 style="margin-bottom: 10px;">PAPER VERSE</h3>
+                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Showcase your
+                            research and ideas.</p>
+                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="event-card glass-panel" data-category="technical" data-aos="fade-up" data-aos-delay="150"
+                    style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 12:45 AM</div>
+                    <div style="height: 200px; overflow: hidden; position: relative;">
+                        <img src="asset/error hunt.jpeg"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Coding">
+                        <div class="event-overlay">
+                            <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
+                            <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> BCA & DS LAB</div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i> TEAM OF 2</div>
+                            <a href="#register" class="btn btn-glow"
+                                style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
+                        </div>
+                    </div>
+                    <div style="padding: 25px;">
+                        <div style="color: lightcoral; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px;">
+                            TECHNICAL</div>
+                        <h3 style="margin-bottom: 10px;">ERROR HUNT</h3>
+                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Find bugs, fix code,
+                            win prizes.</p>
+                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="event-card glass-panel" data-category="non-technical" data-aos="fade-up"
+                    data-aos-delay="200" style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 03:00 PM</div>
+                    <div style="height: 200px; overflow: hidden; position: relative;">
+                        <img src="asset/adrenaline.jpeg"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Gaming">
+                        <div class="event-overlay">
+                            <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
+                            <div class="event-info-item"><i class="fa-solid fa-location-dot"></i>Allama Iqbal Auditorium
+                            </div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i> TEAM OF 4</div>
+                            <a href="#register" class="btn btn-glow"
+                                style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
+                        </div>
+                    </div>
+                    <div style="padding: 25px;">
+                        <div style="color: greenyellow; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px;">
+                            NON-TECHNICAL</div>
+                        <h3 style="margin-bottom: 10px;">ADRENALINE</h3>
+                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Show you marketing
+                            ideas and tactics.</p>
+                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="event-card glass-panel" data-category="technical" data-aos="fade-up" data-aos-delay="250"
+                    style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 12:15 PM</div>
+                    <div style="height: 200px; overflow: hidden; position: relative;">
+                        <img src="asset/Code canvas.jpeg"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Coding">
+                        <div class="event-overlay">
+                            <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
+                            <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> CS LAB A</div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i> TEAM OF 2</div>
+                            <a href="#register" class="btn btn-glow"
+                                style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
+                        </div>
+                    </div>
+                    <div style="padding: 25px;">
+                        <div style="color: lightcoral; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px;">
+                            TECHNICAL</div>
+                        <h3 style="margin-bottom: 10px;">CODE CANVAS</h3>
+                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Web design and UI
+                            challenge.</p>
+                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="event-card glass-panel" data-category="non-technical" data-aos="fade-up"
+                    data-aos-delay="300" style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 11:45 PM</div>
+                    <div style="height: 200px; overflow: hidden; position: relative;">
+                        <img src="asset/scroll stopper.jpeg"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Gaming">
+                        <div class="event-overlay">
+                            <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
+                            <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> MICROPROCESSOR & DEMO
+                                CLASS</div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i> INDIVIDUAL</div>
+                            <a href="#register" class="btn btn-glow"
+                                style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
+                        </div>
+                    </div>
+                    <div style="padding: 25px;">
+                        <div style="color: greenyellow; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px;">
+                            NON-TECHNICAL</div>
+                        <h3 style="margin-bottom: 10px;">SCROLL STOPPER</h3>
+                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Showcase your fun
+                            world. </p>
+                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Event 6 -->
+                <div class="event-card glass-panel" data-category="technical" data-aos="fade-up" data-aos-delay="350"
+                    style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 11:15 AM</div>
+                    <div style="height: 200px; overflow: hidden; position: relative;">
+                        <img src="asset/IQubit.jpeg"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Coding">
+                        <div class="event-overlay">
+                            <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
+                            <div class="event-info-item"><i class="fa-solid fa-location-dot"></i>Allama Iqbal Auditorium
+                            </div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i> Teams of 2</div>
+                            <a href="#register" class="btn btn-glow"
+                                style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
+                        </div>
+                    </div>
+                    <div style="padding: 25px;">
+                        <div style="color: lightcoral; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px;">
+                            TECHNICAL</div>
+                        <h3 style="margin-bottom: 10px;">IQUBIT</h3>
+                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Logic and puzzle
+                            solving.</p>
+                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Event 7 -->
+                <div class="event-card glass-panel" data-category="technical" data-aos="fade-up" data-aos-delay="400"
+                    style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 12:15 AM</div>
+                    <div style="height: 200px; overflow: hidden; position: relative;">
+                        <img src="asset/Visual IQ.jpeg"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Coding">
+                        <div class="event-overlay">
+                            <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
+                            <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> llama Iqbal Auditorium
+                            </div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i>TEAM OF 2</div>
+                            <a href="#register" class="btn btn-glow"
+                                style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
+                        </div>
+                    </div>
+                    <div style="padding: 25px;">
+                        <div style="color: lightcoral; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px;">
+                            TECHNICAL</div>
+                        <h3 style="margin-bottom: 10px;">VISUAL IQ</h3>
+                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Data visualization
+                            contest.</p>
+                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Event 8 -->
+                <div class="event-card glass-panel" data-category="non-technical" data-aos="fade-up"
+                    data-aos-delay="450" style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 2:30 PM</div>
+                    <div style="height: 200px; overflow: hidden; position: relative;">
+                        <img src="asset/laugh riot.jpeg"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Gaming">
+                        <div class="event-overlay">
+                            <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
+                            <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> llama Iqbal Auditorium
+                            </div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i>INDIVIDUAL</div>
+                            <a href="#register" class="btn btn-glow"
+                                style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
+                        </div>
+                    </div>
+                    <div style="padding: 25px;">
+                        <div style="color: greenyellow; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px;">
+                            NON-TECHNICAL</div>
+                        <h3 style="margin-bottom: 10px;">LAUGH RIOT</h3>
+                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Stand-up comedy and
+                            fun.</p>
+                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function filterEvents(category) {
+                    // Update active button state
+                    const buttons = document.querySelectorAll('.filter-btn');
+                    buttons.forEach(btn => {
+                        // Check if the button's text matches the category
+                        const btnText = btn.innerText.toLowerCase();
+                        if ((category === 'all' && btnText === 'all') ||
+                            (category === 'technical' && btnText === 'technical') ||
+                            (category === 'non-technical' && btnText === 'non-technical')) {
+                            btn.classList.add('active');
+                            // Reset styles for active button (since we used inline styles previously)
+                            btn.style.color = 'var(--bg-dark)';
+                            btn.style.borderColor = 'var(--primary)';
+                        } else {
+                            btn.classList.remove('active');
+                            // Reset styles for inactive buttons
+                            btn.style.color = 'var(--text-dim)';
+                            btn.style.borderColor = 'var(--glass-border)';
+                        }
+                    });
+
+                    // Filter events
+                    const events = document.querySelectorAll('.event-card');
+                    events.forEach(card => {
+                        const eventCategory = card.getAttribute('data-category');
+
+                        if (category === 'all' || eventCategory === category) {
+                            card.classList.remove('hide');
+                            card.classList.add('show');
+                        } else {
+                            card.classList.remove('show');
+                            card.classList.add('hide');
+                        }
+                    });
+                }
+            </script>
+        </div>
+    </section>
+    
+
+
+    <!-- Coordinators Section -->
+    <section id="teams"  class="section-padding" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header">
+                <h2>OUR <span class="text-gradient">CHIEF GUEST</span></h2>
+
+            </div>
+
+            <div class="staff-grid">
+                <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="100">
+                    <div class="staff-img-container">
+                        <img src="asset/CK Sir.jpeg" alt="Profile">
+                    </div>
+                    <div>
+                        <h4>Mr. C.Khaiser Ahmed</h4>
+                        <p style="color:var(--text-dim); font-size: 0.9rem;"> Secretrary & Correspondent</p>
+                    </div>
+                </div>
+                <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="200">
+                    <div class="staff-img-container">
+                        <img src="asset/PRINCPAL.png" alt="Profile">
+                    </div>
+                    <div>
+
+                        <h4>Mr. T.Afsar Basha</h4>
+                        <p style="color:var(--text-dim); font-size: 0.9rem;"> Principal</p>
+                    </div>
+                </div>
+                <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="300">
+                    <div class="staff-img-container">
+                        <img src="asset/aakm sir.jpeg" alt="Profile">
+                    </div>
+                    <div>
+                        <h4>Mr. A.A.Khadar Maideen</h4>
+                        <p style="color:var(--text-dim); font-size: 0.9rem;">HOD & Convener</p>
+                    </div>
+                </div>
+                <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="400">
+                    <div class="staff-img-container">
+                        <img src="asset/nawaz sir.jpeg" alt="Profile">
+                    </div>
+                    <div>
+                        <h4>Mr. S.Nawas Basha</h4>
+                        <p style="color:var(--text-dim); font-size: 0.9rem;"> Event President</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-header">
+                <h2>OUR <span class="text-gradient">COORDINATORS</span></h2>
+                <p>The dedicated team making it all happen.</p>
+            </div>
+
+            <h3 style="margin-bottom: 30px; font-size: 1.5rem; color: var(--secondary);">Staff Coordinators</h3>
+            <div class="staff-grid">
+                <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="100">
+                    <div class="staff-img-container">
+                        <img src="asset/afzal sir.jpeg" alt="Profile">
+                    </div>
+                    <div>
+                        <h4>MR. V.A.AFZAL BASHA</h4>
+                        <p style="color:var(--text-dim); font-size: 0.9rem;">MANAGEMENT TEAM HEAD</p>
+                    </div>
+                </div>
+                <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="200">
+                    <div class="staff-img-container">
+                        <img src="asset/fayaz sir.jpeg" alt="Profile">
+                    </div>
+                    <div>
+                        <h4>MR. MOHAMED FAIYAZ PATEL </h4>
+                        <p style="color:var(--text-dim); font-size: 0.9rem;">MANAGEMENT TEAM HEAD</p>
+                    </div>
+                    
+                </div>
+                <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="300">
+                    <div class="staff-img-container">
+                        <img src="asset/zameer sir.jpeg" alt="Profile">
+                    </div>
+                    <div>
+                        <h4>MR. C.A.MD ZAMEER </h4>
+                        <p style="color:var(--text-dim); font-size: 0.9rem;">EVENTS TEAM HEAD</p>
+                    </div>
+                </div>
+                <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="300">
+                    <div class="staff-img-container">
+                        <img src="asset/junaid sir.jpeg" alt="Profile">
+                    </div>
+                    <div>
+                        <h4>MR. B.JUNAID AHMED</h4>
+                        <p style="color:var(--text-dim); font-size: 0.9rem;">TECHNICAL TEAM HEAD</p>
+                    </div>
+                </div>
+                <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="300">
+                    <div class="staff-img-container">
+                        <img src="asset/viswa sir.jpeg" alt="Profile">
+                    </div>
+                    <div>
+                        <h4>MR. A.VISWANATHAN</h4>
+                        <p style="color:var(--text-dim); font-size: 0.9rem;">DISCIPLINE TEAM HEAD</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 30px;     text-align: center;
+font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
+            <div class="student-grid">
+                <div class="student-card glass-panel" data-aos="flip-left" data-aos-delay="300">
+                    <div class="student-img-container">
+                        <img src="asset/FUZAIL.jpeg" alt="Profile">
+                    </div>
+                    <h4>MR. A.MOHAMMED FUZAIL</h4>
+                    <p style="color:var(--text-dim); font-size: 0.8rem; margin-bottom: 15px;">III BSc CS(E)
+                    </p>
+                    <a href="tel:+918870539407" class="btn-glow"
+                        style="display: inline-flex; width: 40px; height: 40px; border-radius: 50%; align-items: center; justify-content: center; text-decoration: none;">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+                <div class="student-card glass-panel" data-aos="flip-left" data-aos-delay="300">
+                    <div class="student-img-container">
+                        <img src="asset/raiyan.jpeg" alt="Profile">
+                    </div>
+                    <h4>MR. MOHAMMED RAIYAN</h4>
+                    <p style="color:var(--text-dim); font-size: 0.8rem; margin-bottom: 15px;">III BSc CS(A)</p>
+                    <a href="tel:+917708717605 " class="btn-glow"
+                        style="display: inline-flex; width: 40px; height: 40px; border-radius: 50%; align-items: center; justify-content: center; text-decoration: none;">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+                <div class="student-card glass-panel" data-aos="flip-left" data-aos-delay="300">
+                    <div class="student-img-container">
+                        <img src="asset/YASHER.jpeg" alt="Profile">
+                    </div>
+                    <h4>MR. V.MOHAMMED YASHAR</h4>
+                    <p style="color:var(--text-dim); font-size: 0.8rem; margin-bottom: 15px;">III BSc CS(A)</p>
+
+                </div>
+                <div class="student-card glass-panel" data-aos="flip-left" data-aos-delay="400">
+                    <div class="student-img-container">
+                        <img src="asset/SHAHUL.jpeg" alt="Profile">
+                    </div>
+                    <h4>MR. SHAHUL HAMEED</h4>
+                    <p style="color:var(--text-dim); font-size: 0.8rem; margin-bottom: 15px;">III BCA-A</p>
+
+                </div>
+                <div class="student-card glass-panel" data-aos="flip-left" data-aos-delay="400">
+                    <div class="student-img-container">
+                        <img src="asset/zameer.jpeg" alt="Profile">
+                    </div>
+                    <h4>MR. T.ZAMEER AHMED</h4>
+                    <p style="color:var(--text-dim); font-size: 0.8rem; margin-bottom: 15px;">III BCA-B</p>
+
+                </div>
+                <div class="student-card glass-panel" data-aos="flip-left" data-aos-delay="400">
+                    <div class="student-img-container">
+                        <img src="asset/arbas.jpeg" alt="Profile">
+                    </div>
+                    <h4>MR. T.ARBAS MALHAN</h4>
+                    <p style="color:var(--text-dim); font-size: 0.8rem; margin-bottom: 15px;">III BSc DS</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline / Schedule -->
+    <section id="timeline" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>EVENT <span class="text-gradient">TIMELINE</span></h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content glass-panel">
+                        <span class="timeline-time">10:00 AM</span>
+                        <h3>Inauguration Ceremony</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-dim);">Grand opening with keynote speakers and
+                            welcome delivery.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content glass-panel">
+                        <span class="timeline-time">11:00 AM</span>
+                        <h3>Events Begins</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-dim);">Innovation ideas and games will be brihgt your IQ.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content glass-panel">
+                        <span class="timeline-time">02:30 PM</span>
+                        <h3>Laugh Riot(Stand-up comedy)</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-dim);">Showcase your fun world in stage</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content glass-panel">
+                        <span class="timeline-time">03:00 AM</span>
+                        <h3>Adrenaline</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-dim);">Showcasing innovative marketing level from
+                            students across the state.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content glass-panel">
+                        <span class="timeline-time">04:00 PM</span>
+                        <h3>Vote Of Thanks & Awards</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-dim);">Prize distribution and closing performance
+                            by students</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>PAST <span class="text-gradient">MEMORIES</span></h2>
+                <p>Glimpses from our previous editions.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px;">
+                <div class="glass-panel" style="height: 250px; overflow: hidden; border-radius: 12px;">
+                    <img src="asset/verge 17.jpg"
+                        style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s; cursor: pointer;"
+                        onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+                        alt="Gallery 1">
+                </div>
+                <div class="glass-panel" style="height: 250px; overflow: hidden; border-radius: 12px;">
+                    <img src="asset/state workshop.jpg"
+                        style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s; cursor: pointer;"
+                        onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+                        alt="Gallery 2">
+                </div>
+                <div class="glass-panel" style="height: 250px; overflow: hidden; border-radius: 12px;">
+                    <img src="asset/dream iti 20.png"
+                        style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s; cursor: pointer;"
+                        onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+                        alt="Gallery 3">
+                </div>
+                <div class="glass-panel" style="height: 250px; overflow: hidden; border-radius: 12px;">
+                    <img src="asset/fresher day.jpeg"
+                        style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s; cursor: pointer;"
+                        onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+                        alt="Gallery 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <i class="fa-solid fa-bolt"></i> DREAM IT <span style="color:var(--secondary)">'26</span>
+                    </div>
+                    <p>The ultimate convergence of technology, creativity, and innovation. Join us to witness the
+                        future.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul style="line-height: 2;">
+                        <li><a href="#home" style="color:var(--text-dim); transition: 0.3s;"
+                                onmouseover="this.style.color='var(--primary)'"
+                                onmouseout="this.style.color='var(--text-dim)'">Home</a></li>
+                        <li><a href="#events" style="color:var(--text-dim); transition: 0.3s;"
+                                onmouseover="this.style.color='var(--primary)'"
+                                onmouseout="this.style.color='var(--text-dim)'">Events</a></li>
+                        <li><a href="#register" style="color:var(--text-dim); transition: 0.3s;"
+                                onmouseover="this.style.color='var(--primary)'"
+                                onmouseout="this.style.color='var(--text-dim)'">Register</a></li>
+                        <li><a href="#" style="color:var(--text-dim); transition: 0.3s;"
+                                onmouseover="this.style.color='var(--primary)'"
+                                onmouseout="this.style.color='var(--text-dim)'">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Connect</h3>
+                    <p>Follow us on social media for updates.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-btn"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;Dream IT'26. All Rights Reserved. Designed by fuzailscript.in.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Pamphlet Interaction
+        const pamphlet = document.getElementById('pamphletCard');
+        const closePamphlet = document.getElementById('closePamphlet');
+        const heroSection = document.getElementById('home');
+
+        // Scroll to show pamphlet
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const heroHeight = heroSection.offsetHeight;
+
+            if (scrollPosition > heroHeight * 0.5) {
+                pamphlet.style.display = 'flex';
+                setTimeout(() => { pamphlet.style.opacity = '1'; }, 10);
+            } else {
+                pamphlet.style.opacity = '0';
+                setTimeout(() => {
+                    if (pamphlet.style.opacity === '0') pamphlet.style.display = 'none';
+                }, 500);
+            }
+        });
+
+        pamphlet.addEventListener('click', function (e) {
+            if (!this.classList.contains('active')) {
+                this.classList.add('active');
+            }
+        });
+
+        closePamphlet.addEventListener('click', function (e) {
+            e.stopPropagation();
+            pamphlet.classList.remove('active');
+        });
+
+        // Mobile Menu
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.querySelector('i').classList.remove('fa-xmark');
+                menuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Countdown Timer
+        const targetDate = new Date('December 24, 2026 00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 250));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            disable: 'mobile' // Disable animations on mobile devices to prevent responsiveness issues
+        });
+    </script>
+</body>
+
+</html>
