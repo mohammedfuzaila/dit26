@@ -1059,6 +1059,216 @@
             box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
             border-color: var(--primary) !important;
         }
+
+        /* --- EVENT MODAL --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-container {
+            width: 90%;
+            max-width: 600px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            transform: perspective(1000px) rotateX(10deg) scale(0.9);
+            box-shadow: 0 0 50px rgba(0, 243, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: perspective(1000px) rotateX(0deg) scale(1);
+            box-shadow: 0 0 80px rgba(0, 243, 255, 0.2);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--text-dim);
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .modal-category {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .modal-body {
+            display: grid;
+            gap: 20px;
+        }
+
+        .modal-section {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            transition: 0.3s;
+        }
+
+        .modal-section:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .modal-section-title {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-text {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .modal-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .modal-list li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Responsive Modal */
+        @media screen and (max-width: 768px) {
+            .modal-container {
+                width: 95%;
+                padding: 30px 20px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .modal-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* --- PAMPHLET ZOOM --- */
+        .pamphlet-zoom-container {
+            margin: 40px auto 0;
+            max-width: 350px;
+            perspective: 1000px;
+            text-align: center;
+        }
+
+        .pamphlet-thumb {
+            width: 100%;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--glass-border);
+        }
+
+        .pamphlet-thumb:hover {
+            transform: scale(1.05) rotateX(5deg);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+            border-color: var(--primary);
+        }
+
+        .pamphlet-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 3000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            cursor: zoom-out;
+            padding: 20px;
+        }
+
+        .pamphlet-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .pamphlet-full-img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(0, 243, 255, 0.2);
+            transform: scale(0.8);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .pamphlet-modal.active .pamphlet-full-img {
+            transform: scale(1);
+        }
     </style>
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -1129,7 +1339,7 @@
             <i class="fa-solid fa-xmark close-pamphlet" id="closePamphlet"></i>
             <h3 style="color: var(--primary); margin-bottom: 10px;">FEST BROCHURE</h3>
             <p style="font-size: 0.9rem; margin-bottom: 20px;">Get all the details about events and rules.</p>
-            <a href="#" class="btn btn-glow" style="padding: 10px 20px; font-size: 0.9rem;">DOWNLOAD PDF</a>
+            <a href="asset/invitation sample.pdf" class="btn btn-glow" style="padding: 10px 20px; font-size: 0.9rem;">DOWNLOAD PDF</a>
         </div>
     </div>
 
@@ -1154,7 +1364,16 @@
                         From coding marathons to robotics warfare, witness the future unfold right before your eyes.
                     </p>
 
-                    <a href="#events" class="btn btn-primary" style="margin-top: 20px;">LEARN MORE</a>
+
+
+                    <!-- Zoomable Pamphlet Preview -->
+                    <div class="pamphlet-zoom-container" data-aos="zoom-in" data-aos-delay="200">
+                        <p
+                            style="color: var(--secondary); font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 2px; font-weight: 600;">
+                            CLICK TO VIEW PAMPHLET</p>
+                        <img src="asset/Dreamit Pamplet.png" alt="Event Pamphlet" class="pamphlet-thumb"
+                            onclick="openPamphlet()">
+                    </div>
                 </div>
             </div>
         </div>
@@ -1189,7 +1408,7 @@
                         <div class="event-overlay">
                             <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
                             <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> MULTIMEDIA HALL</div>
-                            <div class="event-info-item"><i class="fa-solid fa-users"></i> TEAM OF 2</div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
                             <a href="#register" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
@@ -1200,7 +1419,8 @@
                         <h3 style="margin-bottom: 10px;">PAPER VERSE</h3>
                         <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Showcase your
                             research and ideas.</p>
-                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                        <a href="javascript:void(0)" onclick="openModal('paper-verse')"
+                            style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
                                 class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1215,7 +1435,7 @@
                         <div class="event-overlay">
                             <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
                             <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> BCA & DS LAB</div>
-                            <div class="event-info-item"><i class="fa-solid fa-users"></i> TEAM OF 2</div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
                             <a href="#register" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
@@ -1226,7 +1446,8 @@
                         <h3 style="margin-bottom: 10px;">ERROR HUNT</h3>
                         <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Find bugs, fix code,
                             win prizes.</p>
-                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                        <a href="javascript:void(0)" onclick="openModal('error-hunt')"
+                            style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
                                 class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1242,7 +1463,7 @@
                             <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
                             <div class="event-info-item"><i class="fa-solid fa-location-dot"></i>Allama Iqbal Auditorium
                             </div>
-                            <div class="event-info-item"><i class="fa-solid fa-users"></i> TEAM OF 4</div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
                             <a href="#register" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
@@ -1253,7 +1474,8 @@
                         <h3 style="margin-bottom: 10px;">ADRENALINE</h3>
                         <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Show you marketing
                             ideas and tactics.</p>
-                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                        <a href="javascript:void(0)" onclick="openModal('adrenaline')"
+                            style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
                                 class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1268,7 +1490,7 @@
                         <div class="event-overlay">
                             <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
                             <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> CS LAB A</div>
-                            <div class="event-info-item"><i class="fa-solid fa-users"></i> TEAM OF 2</div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
                             <a href="#register" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
@@ -1279,7 +1501,8 @@
                         <h3 style="margin-bottom: 10px;">CODE CANVAS</h3>
                         <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Web design and UI
                             challenge.</p>
-                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                        <a href="javascript:void(0)" onclick="openModal('code-canvas')"
+                            style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
                                 class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1306,7 +1529,8 @@
                         <h3 style="margin-bottom: 10px;">SCROLL STOPPER</h3>
                         <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Showcase your fun
                             world. </p>
-                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                        <a href="javascript:void(0)" onclick="openModal('scroll-stopper')"
+                            style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
                                 class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1322,7 +1546,7 @@
                             <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
                             <div class="event-info-item"><i class="fa-solid fa-location-dot"></i>Allama Iqbal Auditorium
                             </div>
-                            <div class="event-info-item"><i class="fa-solid fa-users"></i> Teams of 2</div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
                             <a href="#register" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
@@ -1333,7 +1557,8 @@
                         <h3 style="margin-bottom: 10px;">IQUBIT</h3>
                         <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Logic and puzzle
                             solving.</p>
-                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                        <a href="javascript:void(0)" onclick="openModal('iqubit')"
+                            style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
                                 class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1347,9 +1572,10 @@
                             style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Coding">
                         <div class="event-overlay">
                             <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
-                            <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> llama Iqbal Auditorium
+                            <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> Allama Iqbal
+                                Auditorium
                             </div>
-                            <div class="event-info-item"><i class="fa-solid fa-users"></i>TEAM OF 2</div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
                             <a href="#register" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
@@ -1360,7 +1586,8 @@
                         <h3 style="margin-bottom: 10px;">VISUAL IQ</h3>
                         <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Data visualization
                             contest.</p>
-                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                        <a href="javascript:void(0)" onclick="openModal('visual-iq')"
+                            style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
                                 class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1370,13 +1597,14 @@
                     data-aos-delay="450" style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
                     <div class="event-badge"><i class="fa-regular fa-clock"></i> 2:30 PM</div>
                     <div style="height: 200px; overflow: hidden; position: relative;">
-                        <img src="asset/laugh riot.jpeg"
+                        <img src="asset/Gemini_Generated_Image_ntfqkgntfqkgntfq.png"
                             style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Gaming">
                         <div class="event-overlay">
                             <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
-                            <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> llama Iqbal Auditorium
+                            <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> Allama Iqbal
+                                Auditorium
                             </div>
-                            <div class="event-info-item"><i class="fa-solid fa-users"></i>INDIVIDUAL</div>
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
                             <a href="#register" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
@@ -1384,10 +1612,11 @@
                     <div style="padding: 25px;">
                         <div style="color: greenyellow; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px;">
                             NON-TECHNICAL</div>
-                        <h3 style="margin-bottom: 10px;">LAUGH RIOT</h3>
-                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Stand-up comedy and
-                            fun.</p>
-                        <a href="#" style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
+                        <h3 style="margin-bottom: 10px;">GESTURA</h3>
+                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">guesing with your
+                            action</p>
+                        <a href="javascript:void(0)" onclick="openModal('laugh-riot')"
+                            style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">VIEW <i
                                 class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1432,14 +1661,13 @@
             </script>
         </div>
     </section>
-    
 
 
     <!-- Coordinators Section -->
-    <section id="teams"  class="section-padding" style="background: rgba(255,255,255,0.01);">
+    <section id="teams" class="section-padding" style="background: rgba(255,255,255,0.01);">
         <div class="container">
             <div class="section-header">
-                <h2>OUR <span class="text-gradient">CHIEF GUEST</span></h2>
+                <h2>OUR <span class="text-gradient">GUEST OF HONOUR</span></h2>
 
             </div>
 
@@ -1498,6 +1726,16 @@
                         <p style="color:var(--text-dim); font-size: 0.9rem;">MANAGEMENT TEAM HEAD</p>
                     </div>
                 </div>
+
+                <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="300">
+                    <div class="staff-img-container">
+                        <img src="asset/zameer sir.jpeg" alt="Profile">
+                    </div>
+                    <div>
+                        <h4>MR. C.A.MD ZAMEER </h4>
+                        <p style="color:var(--text-dim); font-size: 0.9rem;">MANAGEMENT TEAM HEAD</p>
+                    </div>
+                </div>
                 <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="200">
                     <div class="staff-img-container">
                         <img src="asset/fayaz sir.jpeg" alt="Profile">
@@ -1506,15 +1744,15 @@
                         <h4>MR. MOHAMED FAIYAZ PATEL </h4>
                         <p style="color:var(--text-dim); font-size: 0.9rem;">MANAGEMENT TEAM HEAD</p>
                     </div>
-                    
                 </div>
+
                 <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="300">
                     <div class="staff-img-container">
-                        <img src="asset/zameer sir.jpeg" alt="Profile">
+                        <img src="asset/viswa sir.jpeg" alt="Profile">
                     </div>
                     <div>
-                        <h4>MR. C.A.MD ZAMEER </h4>
-                        <p style="color:var(--text-dim); font-size: 0.9rem;">EVENTS TEAM HEAD</p>
+                        <h4>MR. A.VISWANATHAN</h4>
+                        <p style="color:var(--text-dim); font-size: 0.9rem;">DISCIPLINE TEAM HEAD</p>
                     </div>
                 </div>
                 <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="300">
@@ -1523,16 +1761,7 @@
                     </div>
                     <div>
                         <h4>MR. B.JUNAID AHMED</h4>
-                        <p style="color:var(--text-dim); font-size: 0.9rem;">TECHNICAL TEAM HEAD</p>
-                    </div>
-                </div>
-                <div class="staff-card glass-panel" data-aos="fade-up" data-aos-delay="300">
-                    <div class="staff-img-container">
-                        <img src="asset/viswa sir.jpeg" alt="Profile">
-                    </div>
-                    <div>
-                        <h4>MR. A.VISWANATHAN</h4>
-                        <p style="color:var(--text-dim); font-size: 0.9rem;">DISCIPLINE TEAM HEAD</p>
+                        <p style="color:var(--text-dim); font-size: 0.9rem;">EVENTS TEAM HEAD</p>
                     </div>
                 </div>
             </div>
@@ -1619,13 +1848,14 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     <div class="timeline-content glass-panel">
                         <span class="timeline-time">11:00 AM</span>
                         <h3>Events Begins</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-dim);">Innovation ideas and games will be brihgt your IQ.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dim);">Innovation ideas and games will be bright
+                            your IQ.</p>
                     </div>
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content glass-panel">
                         <span class="timeline-time">02:30 PM</span>
-                        <h3>Laugh Riot(Stand-up comedy)</h3>
+                        <h3>Gestura</h3>
                         <p style="font-size: 0.9rem; color: var(--text-dim);">Showcase your fun world in stage</p>
                     </div>
                 </div>
@@ -1641,7 +1871,7 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     <div class="timeline-content glass-panel">
                         <span class="timeline-time">04:00 PM</span>
                         <h3>Vote Of Thanks & Awards</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-dim);">Prize distribution and closing performance
+                        <p style="font-size: 0.9rem; color: var(--text-dim);">Prize distribution and Closing performance
                             by students</p>
                     </div>
                 </div>
@@ -1730,6 +1960,58 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
         </div>
     </footer>
 
+    <!-- Event Details Modal -->
+    <div class="modal-overlay" id="eventModal">
+        <div class="modal-container">
+            <i class="fa-solid fa-xmark modal-close" onclick="closeModal()"></i>
+            <div class="modal-header">
+                <div class="modal-category" id="modalCategory">Technical Event</div>
+                <h2 class="modal-title" id="modalTitle">Event Name</h2>
+                <div style="height: 3px; width: 60px; background: var(--secondary); margin: 15px auto;"></div>
+            </div>
+
+            <div class="modal-body">
+                <!-- Rules Section -->
+                <div class="modal-section">
+                    <div class="modal-section-title">
+                        <i class="fa-solid fa-scale-balanced"></i> RULES & REGULATIONS
+                    </div>
+                    <ul class="modal-list" id="modalRules">
+                        <!-- Populated by JS -->
+                    </ul>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <!-- Time Section -->
+                    <div class="modal-section">
+                        <div class="modal-section-title">
+                            <i class="fa-regular fa-clock"></i> TIME DURATION
+                        </div>
+                        <p class="modal-text" id="modalTime">--</p>
+                    </div>
+
+                    <!-- Capacity Section -->
+                    <div class="modal-section">
+                        <div class="modal-section-title">
+                            <i class="fa-solid fa-users"></i> CAPACITY
+                        </div>
+                        <p class="modal-text" id="modalCapacity">--</p>
+                    </div>
+                </div>
+
+                <div class="flex-center" style="margin-top: 10px;">
+                    <a href="#register" class="btn btn-glow" onclick="closeModal()"
+                        style="width: 100%; justify-content: center;">REGISTER NOW</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pamphlet Zoom Modal -->
+    <div class="pamphlet-modal" id="pamphletModal" onclick="closePamphletModal()">
+        <img src="asset/Dreamit Pamplet.png" class="pamphlet-full-img" alt="Full App Pamphlet">
+    </div>
+
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -1801,7 +2083,8 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
         });
 
         // Countdown Timer
-        const targetDate = new Date('December 24, 2026 00:00:00').getTime();
+        // Countdown Timer
+        const targetDate = new Date('January 29, 2026 10:00:00').getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -1815,7 +2098,7 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                 return;
             }
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 250));
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -1830,12 +2113,176 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
         updateCountdown();
 
         // Initialize AOS
+        // Initialize AOS
         AOS.init({
             duration: 800,
             once: true,
-            offset: 100,
-            disable: 'mobile' // Disable animations on mobile devices to prevent responsiveness issues
+            offset: 100
         });
+    </script>
+    <script>
+        // --- EVENT MODAL LOGIC ---
+        const eventModal = document.getElementById('eventModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalRules = document.getElementById('modalRules');
+        const modalTime = document.getElementById('modalTime');
+        const modalCapacity = document.getElementById('modalCapacity');
+
+        // Event Data Object
+        const eventData = {
+            'paper-verse': {
+                title: 'Paper Verse',
+                category: 'Non-Technical',
+                rules: [
+                    'Team size: Exactly 2 members.',
+                    'Topic: Any technical or social innovation.',
+                    'Presentation time: 8 mins + 2 mins Q&A.',
+                    'Hard copy of abstract is mandatory.'
+                ],
+                time: '10:45 AM - 12:45 PM',
+                capacity: '2 Members / Team'
+            },
+            'error-hunt': {
+                title: 'Error Hunt',
+                category: 'Technical',
+                rules: [
+                    'Individual participation or Team of 2.',
+                    'Find bugs in provided C/C++/Java/Python snippets.',
+                    '3 Rounds: Easy, Medium, Hard.',
+                    'No internet access allowed.'
+                ],
+                time: '12:45 PM - 02:45 PM',
+                capacity: '2 Members / Team'
+            },
+            'adrenaline': {
+                title: 'Adrenaline',
+                category: 'Non-Technical',
+                rules: [
+                    'Showcase your marketing skills.',
+                    'Product will be given on the spot.',
+                    'Preparation time: 10 mins.',
+                    'Judge\'s decision is final.'
+                ],
+                time: '03:00 PM - 04:00 PM',
+                capacity: 'Team of 4'
+            },
+            'code-canvas': {
+                title: 'Code Canvas',
+                category: 'Technical',
+                rules: [
+                    'Web Design Challenge.',
+                    'Replicate the given UI exactly.',
+                    'Assets will be provided.',
+                    'HTML/CSS/JS or any framework allowed.'
+                ],
+                time: '12:15 PM - 01:45 PM',
+                capacity: 'Team of 2'
+            },
+            'scroll-stopper': {
+                title: 'Scroll Stopper',
+                category: 'Non-Technical',
+                rules: [
+                    'Reels/Shorts creation contest.',
+                    'Theme will be announced on spot.',
+                    'Editing tools allowed.',
+                    'Max duration: 60 seconds.'
+                ],
+                time: '11:45 AM - 01:00 PM',
+                capacity: 'Individual'
+            },
+            'iqubit': {
+                title: 'I-Qubit',
+                category: 'Technical',
+                rules: [
+                    'Logic and Puzzle solving.',
+                    'Pen and paper round.',
+                    'Riddles, Math, and Logic gates.',
+                    'Fastest fingers first.'
+                ],
+                time: '11:15 AM - 12:15 PM',
+                capacity: 'Teams of 2'
+            },
+            'visual-iq': {
+                title: 'Visual IQ',
+                category: 'Technical',
+                rules: [
+                    'Identify tech personalities/logos.',
+                    'Connections style quiz.',
+                    'Buzzer round included.',
+                    'Visual observation skills tested.'
+                ],
+                time: '12:15 PM - 01:15 PM',
+                capacity: 'Team of 2'
+            },
+            'laugh-riot': {
+                title: 'Laugh Riot',
+                category: 'Non-Technical',
+                rules: [
+                    'Stand-up comedy.',
+                    'No offensive/political content.',
+                    'Time limit: 5 minutes.',
+                    'Language: English/Tamil.'
+                ],
+                time: '02:30 PM - 03:30 PM',
+                capacity: 'Individual'
+            }
+        };
+
+        function openModal(eventId) {
+            const data = eventData[eventId];
+
+            if (!data) {
+                console.error('Event data not found for:', eventId);
+                return;
+            }
+
+            // Populate Data
+            modalTitle.innerText = data.title;
+            modalCategory.innerText = data.category;
+            modalTime.innerText = data.time;
+            modalCapacity.innerText = data.capacity;
+
+            // Clear and Populate Rules
+            modalRules.innerHTML = '';
+            data.rules.forEach(rule => {
+                const li = document.createElement('li');
+                li.innerText = rule;
+                modalRules.appendChild(li);
+            });
+
+            // Show Modal
+            eventModal.classList.add('active');
+            eventModal.style.visibility = 'visible'; // Ensure visibility
+            eventModal.style.opacity = '1';          // Ensure opacity
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
+
+        function closeModal() {
+            eventModal.classList.remove('active');
+            eventModal.style.visibility = 'hidden';
+            eventModal.style.opacity = '0';
+            document.body.style.overflow = 'auto'; // Restore scroll
+        }
+
+        // Close on outside click
+        eventModal.addEventListener('click', (e) => {
+            if (e.target === eventModal) {
+                closeModal();
+            }
+        });
+        // --- PAMPHLET ZOOM LOGIC ---
+        const pamphletModal = document.getElementById('pamphletModal');
+
+        function openPamphlet() {
+            pamphletModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePamphletModal() {
+            pamphletModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
     </script>
 </body>
 
