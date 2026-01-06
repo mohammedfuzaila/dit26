@@ -32,7 +32,6 @@
 
             --nav-bg: rgba(3, 0, 20, 0.85);
             --footer-bg: #02000d;
-
             --transition-speed: 0.3s;
         }
 
@@ -1208,7 +1207,8 @@
             transform: perspective(1000px) rotateX(10deg) scale(0.9);
             box-shadow: 0 0 50px rgba(0, 243, 255, 0.1);
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
+            overflow-y: auto;
+            max-height: 90vh;
         }
 
         .modal-overlay.active .modal-container {
@@ -1432,7 +1432,7 @@
     <header id="header">
         <div class="container nav-container">
             <div class="logo">
-              </i> DREAM IT <span style="color:var(--secondary)">'26</span>
+                </i> DREAM IT <span style="color:var(--secondary)">'26</span>
             </div>
             <nav>
                 <ul class="nav-links" id="navLinks">
@@ -1465,10 +1465,9 @@
             <p class="hero-subtitle">Experience the next generation of technology, innovation, and creativity at the
                 biggest inter-college technical fest.</p>
             <div class="flex-center" style="gap: 20px; flex-wrap: wrap;">
-                <a href="#register" class="btn btn-glow">REGISTER NOW</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRJRrCZQyAD6pLKFwjY-5ZGh7gt6egp0tfI8HKrWEVJDbLWA/viewform?usp=header" class="btn btn-glow">REGISTER NOW</a>
                 <a href="#events" class="btn btn-primary">EXPLORE EVENTS</a>
             </div>
-
             <div class="countdown-container">
                 <div class="countdown-item">
                     <span class="countdown-number" id="days">00</span>
@@ -1498,7 +1497,7 @@
             <i class="fa-solid fa-xmark close-pamphlet" id="closePamphlet"></i>
             <h3 style="color: var(--primary); margin-bottom: 10px;">FEST BROCHURE</h3>
             <p style="font-size: 0.9rem; margin-bottom: 20px;">Get all the details about events and rules.</p>
-            <a href="asset/invitation sample.pdf" class="btn btn-glow"
+            <a href="asset/Invitation and Protocol.pdf" class="btn btn-glow"
                 style="padding: 10px 20px; font-size: 0.9rem;">DOWNLOAD PDF</a>
         </div>
     </div>
@@ -1533,6 +1532,14 @@
                             CLICK TO VIEW PAMPHLET</p>
                         <img src="asset/Dreamit Pamplet.png" alt="Event Pamphlet" class="pamphlet-thumb"
                             onclick="openPamphlet()">
+
+                        <!-- General Rules Button -->
+                        <div style="margin-top: 25px;">
+                            <button class="btn btn-glow" onclick="openModal('general-rules')"
+                                style="padding: 10px 30px; font-size: 0.9rem;">
+                                <i class="fa-solid fa-clipboard-list" style="margin-right: 10px;"></i> GENERAL RULES
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1561,7 +1568,7 @@
                 <!-- Event 1 -->
                 <div class="event-card glass-panel" data-category="non-technical" data-aos="fade-up"
                     data-aos-delay="100" style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
-                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 10:45 AM</div>
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 11:15 AM</div>
                     <div style="height: 200px; overflow: hidden; position: relative;">
                         <img src="asset/Papper verse.jpeg"
                             style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Hackathon">
@@ -1569,7 +1576,7 @@
                             <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
                             <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> MULTIMEDIA HALL</div>
                             <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
-                            <a href="#register" class="btn btn-glow"
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRJRrCZQyAD6pLKFwjY-5ZGh7gt6egp0tfI8HKrWEVJDbLWA/viewform?usp=header" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
                     </div>
@@ -1588,7 +1595,7 @@
                 <!-- Event 2 -->
                 <div class="event-card glass-panel" data-category="technical" data-aos="fade-up" data-aos-delay="150"
                     style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
-                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 12:45 AM</div>
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 12:45 PM</div>
                     <div style="height: 200px; overflow: hidden; position: relative;">
                         <img src="asset/error hunt.jpeg"
                             style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Coding">
@@ -1596,7 +1603,7 @@
                             <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
                             <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> BCA & DS LAB</div>
                             <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
-                            <a href="#register" class="btn btn-glow"
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRJRrCZQyAD6pLKFwjY-5ZGh7gt6egp0tfI8HKrWEVJDbLWA/viewform?usp=header" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
                     </div>
@@ -1615,7 +1622,7 @@
                 <!-- Event 3 -->
                 <div class="event-card glass-panel" data-category="non-technical" data-aos="fade-up"
                     data-aos-delay="200" style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
-                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 03:00 PM</div>
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 03:15 PM</div>
                     <div style="height: 200px; overflow: hidden; position: relative;">
                         <img src="asset/adrenaline.jpeg"
                             style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Gaming">
@@ -1623,8 +1630,8 @@
                             <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
                             <div class="event-info-item"><i class="fa-solid fa-location-dot"></i>Allama Iqbal Auditorium
                             </div>
-                            <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
-                            <a href="#register" class="btn btn-glow"
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 4 members</div>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRJRrCZQyAD6pLKFwjY-5ZGh7gt6egp0tfI8HKrWEVJDbLWA/viewform?usp=header" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
                     </div>
@@ -1643,15 +1650,15 @@
                 <!-- Event 4 -->
                 <div class="event-card glass-panel" data-category="technical" data-aos="fade-up" data-aos-delay="250"
                     style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
-                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 12:15 PM</div>
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 12:30 PM</div>
                     <div style="height: 200px; overflow: hidden; position: relative;">
                         <img src="asset/AI prompathon.png"
                             style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Coding">
                         <div class="event-overlay">
                             <h4 style="margin-bottom: 15px; color: var(--primary);">QUICK DETAILS</h4>
                             <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> CS LAB A</div>
-                            <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
-                            <a href="#register" class="btn btn-glow"
+                            <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 3 members</div>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRJRrCZQyAD6pLKFwjY-5ZGh7gt6egp0tfI8HKrWEVJDbLWA/viewform?usp=header" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
                     </div>
@@ -1670,7 +1677,7 @@
                 <!-- Event 5 -->
                 <div class="event-card glass-panel" data-category="non-technical" data-aos="fade-up"
                     data-aos-delay="300" style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
-                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 11:45 PM</div>
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 12:00 PM</div>
                     <div style="height: 200px; overflow: hidden; position: relative;">
                         <img src="asset/scroll stopper.jpeg"
                             style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Gaming">
@@ -1679,7 +1686,7 @@
                             <div class="event-info-item"><i class="fa-solid fa-location-dot"></i> MICROPROCESSOR & DEMO
                                 CLASS</div>
                             <div class="event-info-item"><i class="fa-solid fa-users"></i> INDIVIDUAL</div>
-                            <a href="#register" class="btn btn-glow"
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRJRrCZQyAD6pLKFwjY-5ZGh7gt6egp0tfI8HKrWEVJDbLWA/viewform?usp=header" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
                     </div>
@@ -1698,7 +1705,7 @@
                 <!-- Event 6 -->
                 <div class="event-card glass-panel" data-category="technical" data-aos="fade-up" data-aos-delay="350"
                     style="padding: 0; overflow: hidden; position: relative; transition: 0.3s;">
-                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 11:15 AM</div>
+                    <div class="event-badge"><i class="fa-regular fa-clock"></i> 11:45 AM</div>
                     <div style="height: 200px; overflow: hidden; position: relative;">
                         <img src="asset/IQubit.jpeg"
                             style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;" alt="Coding">
@@ -1707,7 +1714,7 @@
                             <div class="event-info-item"><i class="fa-solid fa-location-dot"></i>Allama Iqbal Auditorium
                             </div>
                             <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
-                            <a href="#register" class="btn btn-glow"
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRJRrCZQyAD6pLKFwjY-5ZGh7gt6egp0tfI8HKrWEVJDbLWA/viewform?usp=header" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
                     </div>
@@ -1736,7 +1743,7 @@
                                 Auditorium
                             </div>
                             <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
-                            <a href="#register" class="btn btn-glow"
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRJRrCZQyAD6pLKFwjY-5ZGh7gt6egp0tfI8HKrWEVJDbLWA/viewform?usp=header" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
                     </div>
@@ -1765,7 +1772,7 @@
                                 Auditorium
                             </div>
                             <div class="event-info-item"><i class="fa-solid fa-users"></i>Per Team 2 members</div>
-                            <a href="#register" class="btn btn-glow"
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRJRrCZQyAD6pLKFwjY-5ZGh7gt6egp0tfI8HKrWEVJDbLWA/viewform?usp=header" class="btn btn-glow"
                                 style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px;">REGISTER</a>
                         </div>
                     </div>
@@ -1946,7 +1953,7 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     <div class="student-img-container">
                         <img src="asset/raiyan.jpeg" alt="Profile">
                     </div>
-                    <h4>MR. MOHAMMED RAIYAN</h4>
+                    <h4>MR. S.MOHAMMED RAIYAN</h4>
                     <p style="color:var(--text-dim); font-size: 0.8rem; margin-bottom: 15px;">III BSc CS(A)</p>
                     <a href="tel:+917708717605 " class="btn-glow"
                         style="display: inline-flex; width: 40px; height: 40px; border-radius: 50%; align-items: center; justify-content: center; text-decoration: none;">
@@ -2007,7 +2014,7 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content glass-panel">
-                        <span class="timeline-time">11:00 AM</span>
+                        <span class="timeline-time">11:15 AM</span>
                         <h3>Events Begins</h3>
                         <p style="font-size: 0.9rem; color: var(--text-dim);">Innovation ideas and games will be bright
                             your IQ.</p>
@@ -2022,7 +2029,7 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content glass-panel">
-                        <span class="timeline-time">03:00 AM</span>
+                        <span class="timeline-time">03:15 AM</span>
                         <h3>Adrenaline</h3>
                         <p style="font-size: 0.9rem; color: var(--text-dim);">Showcasing innovative marketing level from
                             students across the state.</p>
@@ -2095,8 +2102,7 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                         <!-- Replace with actual QR Code image -->
                         <div
                             style="width: 100%; height: 100%; background: white; border-radius: 18px; padding: 10px; display: flex; align-items: center; justify-content: center;">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=example@upi&pn=DreamIT"
-                                alt="Payment QR Code" style="width: 100%; height: 100%;">
+                            <img src="asset/register qr code.png" alt="Payment QR Code" style="width: 100%; height: 100%;">
                         </div>
                     </div>
                     <h3 style="color: var(--primary); margin-bottom: 10px;">SCAN TO REGISTER</h3>
@@ -2137,8 +2143,8 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
 
 
 
-                    <a href="https://docs.google.com/forms/" target="_blank" class="btn btn-glow"
-                        style="width: 100%; justify-content: center;">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRJRrCZQyAD6pLKFwjY-5ZGh7gt6egp0tfI8HKrWEVJDbLWA/viewform?usp=header"
+                        target="_blank" class="btn btn-glow" style="width: 100%; justify-content: center;">
                         REGISTRATION LIVE NOW <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -2169,9 +2175,9 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                         <li><a href="#register" style="color:var(--text-dim); transition: 0.3s;"
                                 onmouseover="this.style.color='var(--primary)'"
                                 onmouseout="this.style.color='var(--text-dim)'">Register</a></li>
-                        <li><a href="#" style="color:var(--text-dim); transition: 0.3s;"
+                        <li><a href="#about" style="color:var(--text-dim); transition: 0.3s;"
                                 onmouseover="this.style.color='var(--primary)'"
-                                onmouseout="this.style.color='var(--text-dim)'">Contact Us</a></li>
+                                onmouseout="this.style.color='var(--text-dim)'">About</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -2214,7 +2220,7 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
 
                 <div class="modal-grid-2">
                     <!-- Time Section -->
-                    <div class="modal-section">
+                    <div class="modal-section" id="modalTimeSection">
                         <div class="modal-section-title">
                             <i class="fa-regular fa-clock"></i> TIME DURATION
                         </div>
@@ -2222,7 +2228,7 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     </div>
 
                     <!-- Capacity Section -->
-                    <div class="modal-section">
+                    <div class="modal-section" id="modalCapacitySection">
                         <div class="modal-section-title">
                             <i class="fa-solid fa-users"></i> CAPACITY
                         </div>
@@ -2230,8 +2236,18 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     </div>
                 </div>
 
+                <!-- Topics Section (Dynamic) -->
+                <div class="modal-section" id="modalTopicsContainer" style="display: none;">
+                    <div class="modal-section-title">
+                        <i class="fa-solid fa-lightbulb"></i> TOPICS
+                    </div>
+                    <ul class="modal-list" id="modalTopics">
+                        <!-- Populated by JS -->
+                    </ul>
+                </div>
+
                 <!-- Event Coordinators Section -->
-                <div>
+                <div id="modalCoordinatorsContainer">
                     <div class="modal-section-title" style="margin-top: 10px;">
                         <i class="fa-solid fa-user-tie"></i> EVENT COORDINATORS
                     </div>
@@ -2241,7 +2257,7 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                 </div>
 
                 <div class="flex-center" style="margin-top: 10px;">
-                    <a href="#register" class="btn btn-glow" onclick="closeModal()"
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRJRrCZQyAD6pLKFwjY-5ZGh7gt6egp0tfI8HKrWEVJDbLWA/viewform?usp=header" class="btn btn-glow" onclick="closeModal()"
                         style="width: 100%; justify-content: center;">REGISTER NOW</a>
                 </div>
             </div>
@@ -2422,132 +2438,215 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
 
         // Event Data Object
         const eventData = {
+            'general-rules': {
+                title: 'General Rules',
+                category: 'Event Guidelines',
+                rules: [
+                    'Each college department may register a team with a minimum of 10 members. There is no maximum limit.',
+                    'All participants must carry and present a valid College ID card.',
+                    'An individual may participate in a maximum of two events, including both on-stage and off-stage categories.',
+                    'Prelims will be conducted for all events except Paper Presentation and Adrenaline.',
+                    'If a team member is participating in another event, teams may substitute members for the main stage event.',
+                    'Events are scheduled in parallel; participants may register for and attend any one event of their choice.',
+                    'Any participant found engaging in malpractice or misconduct will be disqualified.',
+                    'All team members must be present for the entire duration of the event day.',
+                    'Participation certificates will be issued to all registered participants.',
+                    'The team leader is responsible for maintaining discipline within their team.',
+                    'Prizes are as follows: 1. First Prize = Certificate + Awards, 2. Second Prize = Certificate + Awards, 3. Third Prize = Certificate + Awards, 4. Participants = Participants Certificate',
+                    'An Overall Championship Trophy will be awarded to the college with the highest score.',
+                    'Participants must arrive on time for all events. Punctuality is strictly enforced.',
+                    'Registration fee is Rs.150 for each participant.',
+                    'Lunch and Refreshment will be provided for all the participants.',
+                    'The judge\'s decision will be final.',
+                    'If any doubts pls visit our site (dit26.netlify.app)'
+                ]
+            },
             'paper-verse': {
                 title: 'Paper Verse',
                 category: 'Non-Technical',
                 rules: [
-                    'Team size: Exactly 2 members.',
-                    'Topic: Any technical or social innovation.',
-                    'Presentation time: 8 mins + 2 mins Q&A.',
-                    'Hard copy of abstract is mandatory.'
+                    'A paper can be presented individually or in a team (usally 1-2 members).',
+                    'Only registered participants are allowed to present.',
+                    'One participant may be allowed to present only one paper.',
+                    'Total time: 5 minutes for presentation and 1-2 minutes for Q&A sessions.',
+                    'Exceeding time limit may lead to negative marking.',
+                    'Participants should bring their PPT in a Pen drive and also Email it if required.',
+                    'Participants must carry college id/registration proof.',
+                    'Formal dress code is preferred.',
+                    'Judges decision will be final.',
+                ],
+                topics: [
+                    'IOT',
+                    'Quantum Computing',
+                    'Big Data',
+                    'E-commerce',
+                    'Cloud Computing',
+                    'Ethical Hacking',
+                    'Artificial Intelligence',
+                    'HCI',
+                    'Cyber Security',
+                    'Robotics',
+                    'Block Chain Technology',
+                    'Edge Computing'
                 ],
                 time: '10:45 AM - 12:45 PM',
-                capacity: '2 Members / Team',
+                capacity: ' Individual or 2 Members / Team',
                 coordinators: [
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
+                    { name: 'Mr. Thyuib ', role: 'Organizer', phone: '9487769975', img: 'asset/CK Sir.jpeg' },
+                    { name: 'Mr. Habeeb', role: 'Organizer', phone: '8056741310', img: 'asset/CK Sir.jpeg' }
                 ]
             },
             'error-hunt': {
                 title: 'Error Hunt',
                 category: 'Technical',
                 rules: [
-                    'Individual participation or Team of 2.',
-                    'Find bugs in provided C/C++/Java/Python snippets.',
-                    '3 Rounds: Easy, Medium, Hard.',
-                    'No internet access allowed.'
+                    '<b style="color: var(--secondary);">Prelims:</b>',
+                    'Only one team per department is allowed',
+                    'Only one member per team can participate in the prelims.',
+                    'The 20 minutes Prelim will be conducted in MCQ format.',
+                    '<b style="color: var(--secondary);">Main Stage:</b>',
+                    'A team should have two members.',
+                    'The 30 Minutes will be given to solve the problem.(debugs)',
+                    'Questions will be asked from C, C++, Python & Java languages.',
+                    'Judge`s decision will be final.'
                 ],
                 time: '12:45 PM - 02:45 PM',
                 capacity: '2 Members / Team',
                 coordinators: [
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
+                    { name: 'Mr. riyaz', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
+                    { name: 'Mr. thaqeeb', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
                 ]
             },
             'adrenaline': {
                 title: 'Adrenaline',
                 category: 'Non-Technical',
                 rules: [
-                    'Showcase your marketing skills.',
-                    'Product will be given on the spot.',
-                    'Preparation time: 10 mins.',
-                    'Judge\'s decision is final.'
+                    'Each Team can have minimum 4 members and maximum 8 members will be allowed to participate.',
+                    'Stage performance Five Minutes',
+                    'The product or idea will be announced on the spot',
+                    'Participants will be get 15 minutes to prepare their advertisement.',
+                    'The advertisement must be presented live in front of the judges.',
+                    'Use of basic props or charts is permitted.',
+                    'Pre-prepared or pre-recorded content is strictly prohibited.',
+                    'Presentation time will be announced at the venue.',
+                    'Judging will be based on creativity, spontaneity, clarity, confidence, and advertising skills.',
+                    'Judges decision will be final and binding.'
                 ],
                 time: '03:00 PM - 04:00 PM',
-                capacity: 'Team of 4',
+                capacity: '4 Members / Team',
                 coordinators: [
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
+                    { name: 'Mr. Aasim', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
+                    { name: 'mr. rabban', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
                 ]
             },
             'code-canvas': {
-                title: 'Code Canvas',
+                title: 'AI Prompathon',
                 category: 'Technical',
                 rules: [
-                    'Web Design Challenge.',
-                    'Replicate the given UI exactly.',
-                    'Assets will be provided.',
-                    'HTML/CSS/JS or any framework allowed.'
+                    'Only one team per department is allowed.',
+                    'Topic and Proto type will be given on-spot.',
+                    'Bring your own laptops and internet connection.',
+                    'Maximum three members per team are allowed.',
+                    'Allowed tech stack: HTML ,CSS and JavaScript only.',
+                    'Only Free AI tools allowed and Paid version will be disqualified.',
+                    '40 min will be given to development time and 5 min for presentation.',
+                    'Marks will be provided by the judges.'
                 ],
                 time: '12:15 PM - 01:45 PM',
-                capacity: 'Team of 2',
+                capacity: '3 Members / Team',
                 coordinators: [
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
+                    { name: 'mr. Faraz ', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
+                    { name: 'mr. abishek', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
                 ]
             },
             'scroll-stopper': {
                 title: 'Scroll Stopper',
                 category: 'Non-Technical',
                 rules: [
-                    'Reels/Shorts creation contest.',
-                    'Theme will be announced on spot.',
-                    'Editing tools allowed.',
-                    'Max duration: 60 seconds.'
+                    'Memes must be original and created by the participant.',
+                    'Copied or plagiarized content will be disqualified.',
+                    'Memes should relate to technology, innovation and student life.',
+                    'No offensive, abusive, political, religious, or NSFW content is not allowed.',
+                    'The content must be created as a video /Mp4 format, with a maximum duration of 1 minute or less.',
+                    'Submit your memes in Registration counter.',
+                    'Judges and Organizers decision will be final.'
                 ],
                 time: '11:45 AM - 01:00 PM',
                 capacity: 'Individual',
                 coordinators: [
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
+                    { name: 'mr. asghar', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
+                    { name: 'mr. sameer', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
                 ]
             },
             'iqubit': {
-                title: 'I-Qubit',
+                title: 'IQubit',
                 category: 'Technical',
                 rules: [
-                    'Logic and Puzzle solving.',
-                    'Pen and paper round.',
-                    'Riddles, Math, and Logic gates.',
-                    'Fastest fingers first.'
+                    '<b style="color: var(--secondary);">Prelims:</b>',
+                    'Only one team per department is allowed.',
+                    'Only one member per team can participate in the prelims.',
+                    'The 20 minutes Prelim will be conducted in MCQ format.',
+                    'Total eight teams would be selected.',
+                    '<b style="color: var(--secondary);">Main Stage:</b>',
+                    'The Event contains 3 Rounds.',
+                    'There will be elimination at the end of Every round.',
+                    'Mark will be provided to right answers and no negative marks for wrong answer.',
+                    'If Tie occurs Questions would be asked to the specific teams.',
+                    'Judges Decision will be Final.'
                 ],
                 time: '11:15 AM - 12:15 PM',
-                capacity: 'Teams of 2',
+                capacity: '2 Members / Team',
                 coordinators: [
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
+                    { name: 'mr. Zeeshan', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
+                    { name: 'mr. uwaise', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
                 ]
             },
             'visual-iq': {
                 title: 'Visual IQ',
                 category: 'Technical',
                 rules: [
-                    'Identify tech personalities/logos.',
-                    'Connections style quiz.',
-                    'Buzzer round included.',
-                    'Visual observation skills tested.'
+                    '<b style="color: var(--secondary);">Prelims:</b>',
+                    'Only one team per department is allowed',
+                    'Only one member per team can participate in the prelims.',
+                    'The 20 minutes Prelim will be conducted in MCQ format.',
+                    'Total eight teams would be selected',
+                    '<b style="color: var(--secondary);">Main Stage:</b>',
+                    'A team should have two members.',
+                    'The Event contains three rounds.',
+                    'There will be Elimination at the end of every round.',
+                    'Mark will be provided to right answers and no negative marks for wrong answer.',
+                    'If Tie occurs Questions would be asked to the specific teams.',
+                    'Judges decision will be final.'
                 ],
                 time: '12:15 PM - 01:15 PM',
-                capacity: 'Team of 2',
+                capacity: '2 Members / Team',
                 coordinators: [
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
+                    { name: 'mr. zaid', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
+                    { name: 'mr. thaha', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
                 ]
             },
             'laugh-riot': {
-                title: 'Laugh Riot',
+                title: 'Gestura',
                 category: 'Non-Technical',
                 rules: [
-                    'Stand-up comedy.',
-                    'No offensive/political content.',
-                    'Time limit: 5 minutes.',
-                    'Language: English/Tamil.'
+                    '<b style="color: var(--secondary);">Prelims:</b>',
+                    'Prelim round will be conducted.',
+                    'Prelims will be conducted in google form.',
+                    'Participants must bring their own mobile phone with an active internet connection.',
+                    'Only one member per team can participate in the prelims.',
+                    'Only one team per department is allowed.',
+                    '<b style="color: var(--secondary);">Main Stage:</b>',
+                    'The Event contains 3 Rounds.',
+                    'A team should have two members.',
+                    'One person should act and another person will find the answer.',
+                    'If participants found in malpractice, they will be disqualified.',
+                    'Judges decision will be final.'
                 ],
                 time: '02:30 PM - 03:30 PM',
-                capacity: 'Individual',
+                capacity: '2 Members / Team',
                 coordinators: [
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
-                    { name: 'Student Name', role: 'Coordinator', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
+                    { name: 'mr. suriya', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' },
+                    { name: 'mr. barath', role: 'Organizer', phone: '1234567890', img: 'asset/CK Sir.jpeg' }
                 ]
             }
         };
@@ -2566,22 +2665,53 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
             modalTime.innerText = data.time;
             modalCapacity.innerText = data.capacity;
 
+            // Hide/Show Time & Capacity
+            const timeSection = document.getElementById('modalTimeSection');
+            const capacitySection = document.getElementById('modalCapacitySection');
+
+            if (data.time && data.capacity) {
+                timeSection.style.display = 'block';
+                capacitySection.style.display = 'block';
+            } else {
+                timeSection.style.display = 'none';
+                capacitySection.style.display = 'none';
+            }
+
+            // Topics Logic
+            const modalTopicsContainer = document.getElementById('modalTopicsContainer');
+            const modalTopics = document.getElementById('modalTopics');
+
+            if (data.topics && data.topics.length > 0) {
+                modalTopicsContainer.style.display = 'block';
+                modalTopics.innerHTML = '';
+                data.topics.forEach(topic => {
+                    const li = document.createElement('li');
+                    li.innerText = topic;
+                    modalTopics.appendChild(li);
+                });
+            } else {
+                modalTopicsContainer.style.display = 'none';
+            }
+
             // Clear and Populate Rules
             modalRules.innerHTML = '';
             data.rules.forEach(rule => {
                 const li = document.createElement('li');
-                li.innerText = rule;
+                li.innerHTML = rule;
                 modalRules.appendChild(li);
             });
 
             // Populate Coordinators
             modalCoordinators.innerHTML = '';
-            if (data.coordinators) {
+            const coordsContainer = document.getElementById('modalCoordinatorsContainer');
+
+            if (data.coordinators && data.coordinators.length > 0) {
+                coordsContainer.style.display = 'block';
                 data.coordinators.forEach(coord => {
                     const card = document.createElement('div');
                     card.className = 'modal-student-card';
                     card.innerHTML = `
-                        <img src="${coord.img}" alt="Coord" class="modal-student-img">
+                    <img src="${coord.img}" alt="Coord" class="modal-student-img">
                         <div style="flex:1;">
                             <h4 style="font-size: 0.9rem; margin-bottom: 3px;">${coord.name}</h4>
                             <p style="color: var(--text-dim); font-size: 0.8rem;">${coord.role}</p>
@@ -2592,6 +2722,8 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     `;
                     modalCoordinators.appendChild(card);
                 });
+            } else {
+                coordsContainer.style.display = 'none';
             }
 
             // Show Modal
