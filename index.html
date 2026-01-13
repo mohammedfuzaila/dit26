@@ -597,12 +597,15 @@
         }
 
         .student-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
         }
 
         .student-card {
+            flex: 1 1 200px;
+            max-width: 250px;
             text-align: center;
             padding: 30px 20px;
             border-radius: 16px;
@@ -1987,18 +1990,18 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                 </div>
                 <div class="student-card glass-panel" data-aos="flip-left" data-aos-delay="400">
                     <div class="student-img-container">
-                        <img src="asset/zameer.jpeg" alt="Profile">
-                    </div>
-                    <h4>MR. T.ZAMEER AHMED</h4>
-                    <p style="color:var(--text-dim); font-size: 0.8rem; margin-bottom: 15px;">III BCA-B</p>
-
-                </div>
-                <div class="student-card glass-panel" data-aos="flip-left" data-aos-delay="400">
-                    <div class="student-img-container">
                         <img src="asset/arbas.jpeg" alt="Profile">
                     </div>
                     <h4>MR. T.ARBAS MALHAN</h4>
                     <p style="color:var(--text-dim); font-size: 0.8rem; margin-bottom: 15px;">III BSc DS</p>
+
+                </div>
+                <div class="student-card glass-panel" data-aos="flip-left" data-aos-delay="400">
+                    <div class="student-img-container">
+                        <img src="asset/zameer.jpeg" alt="Profile">
+                    </div>
+                    <h4>MR. T.ZAMEER AHMED</h4>
+                    <p style="color:var(--text-dim); font-size: 0.8rem; margin-bottom: 15px;">III BCA-B</p>
 
                 </div>
             </div>
@@ -2515,10 +2518,10 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     'Block Chain Technology',
                     'Edge Computing'
                 ],
-                time: '10:45 AM - 12:45 PM',
+                time: '11:15 AM',
                 capacity: ' Individual or 2 Members / Team',
                 coordinators: [
-                    { name: 'Mr. Thyuib ', role: 'Organizer', phone: '94877 69975', img: 'asset/THAIYUB.jpeg' },
+                    { name: 'Mr. Thyuib ', role: 'Organizer', phone: '94877 69975', img: 'asset/thyuib.jpeg' },
                     { name: 'Mr. Habeeb', role: 'Organizer', phone: ' 80567 41310', img: 'asset/habeeb.jpg' },
                     { name: 'Mr. Umer', role: 'Joint Co-Organizer', img: 'asset/umer.jpeg' }
                 ]
@@ -2539,7 +2542,12 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     'If Tie occurs Questions would be asked to the specific teams.',
                     'Judges Decision will be Final.'
                 ],
-                time: '11:15 AM - 12:15 PM',
+                time: [
+                    '<b style="color: var(--secondary);">Prelims:</b>',
+                    '11:15 AM - 11:45 AM',
+                    '<b style="color: var(--secondary);">Main Stage:</b>',
+                    '11:45 AM - 12:15 PM',
+                ],
                 capacity: '2 Members / Team',
                 coordinators: [
                     { name: 'mr. Zeeshan', role: 'Organizer', phone: '95141 40166', img: 'asset/zeeshan.jpeg' },
@@ -2564,7 +2572,12 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     'If Tie occurs Questions would be asked to the specific teams.',
                     'Judges decision will be final.'
                 ],
-                time: '12:15 PM - 01:15 PM',
+                time: [
+                    '<b style="color: var(--secondary);">Prelims:</b>',
+                    '11:15 AM - 12:15 PM',
+                    '<b style="color: var(--secondary);">Main Stage:</b>',
+                    '12:15 PM - 12:45 PM',
+                ],
                 capacity: '2 Members / Team',
                 coordinators: [
                     { name: 'mr. zaid', role: 'Organizer', phone: '72004 79992', img: 'asset/zaid.jpg' },
@@ -2587,7 +2600,12 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     'Questions will be asked from C, C++, Python & Java languages.',
                     'Judge`s decision will be final.'
                 ],
-                time: '12:45 PM - 02:45 PM',
+                time: [
+                    '<b style="color: var(--secondary);">Prelims:</b>',
+                    '12:15 PM - 12:45 PM',
+                    '<b style="color: var(--secondary);">Main Stage:</b>',
+                    '12:45 PM - 01:15 PM',
+                ],
                 capacity: '2 Members / Team',
                 coordinators: [
                     { name: 'Mr. riyaz', role: 'Organizer', phone: ' 86808 57511', img: 'asset/riyaz.jpg' },
@@ -2609,8 +2627,8 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     '40 min will be given to development time and 5 min for presentation.',
                     'Marks will be provided by the judges.'
                 ],
-                time: '12:15 PM - 01:45 PM',
-                capacity: '3 Members / Team',
+                time: '02:30 PM (40min duration) ',
+                capacity: '3 Members / Team  (Compulsory)',
                 coordinators: [
                     { name: 'mr. Faraz ', role: 'Organizer', phone: '63819 52072', img: 'asset/faraz.jpg' },
                     { name: 'mr. abishek', role: 'Organizer', phone: ' 81244 54504', img: 'asset/abishek.png' },
@@ -2629,12 +2647,12 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     'Submit your memes in Registration counter.',
                     'Judges and Organizers decision will be final.'
                 ],
-                time: '11:45 AM - 01:00 PM',
+                time: '12:00 PM - 12:30 PM',
                 capacity: 'Individual',
                 coordinators: [
                     { name: 'mr. asghar', role: 'Organizer', phone: '82701 07221', img: 'asset/asghar.jpeg' },
                     { name: 'mr. sameer', role: 'Organizer', phone: '99448 08430', img: 'asset/sameer.jpeg' },
-                    { name: 'Joint Co-Organizers', role: 'Joint Co-Organizer', phone: '', img: 'asset/user.jfif' }
+                    { name: 'mr. Meeran', role: 'Joint Co-Organizer', phone: '', img: 'asset/meeran.jpeg' }
                 ]
             },
             'adrenaline': {
@@ -2652,8 +2670,8 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     'Judging will be based on creativity, spontaneity, clarity, confidence, and advertising skills.',
                     'Judges decision will be final and binding.'
                 ],
-                time: '03:00 PM - 04:00 PM',
-                capacity: '4 Members / Team',
+                time: '03:15 PM - 04:00 PM',
+                capacity: '4 Members / Team (Compulsory)',
                 coordinators: [
                     { name: 'Mr. Aasim', role: 'Organizer', phone: '95006 80200', img: 'asset/aasim.jpeg' },
                     { name: 'mr. rabban', role: 'Organizer', phone: '82708 89620', img: 'asset/rabban.jpeg' },
@@ -2665,7 +2683,7 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                 title: 'Gestura',
                 category: 'Non-Technical',
                 rules: [
-                    '<b style="color: var(--secondary);">Prelims:</b>',
+                    '<b style="color: var(--secondary);">Qualify:</b>',
                     'Prelim round will be conducted.',
                     'Prelims will be conducted in google form.',
                     'Participants must bring their own mobile phone with an active internet connection.',
@@ -2678,7 +2696,12 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
                     'If participants found in malpractice, they will be disqualified.',
                     'Judges decision will be final.'
                 ],
-                time: '02:30 PM - 03:30 PM',
+                time: [
+                    '<b style="color: var(--secondary);">Qualify:</b>',
+                    '12:15 PM - 01:00 PM',
+                    '<b style="color: var(--secondary);">Main Stage:</b>',
+                    '02:30 PM - 03:15 PM',
+                ],
                 capacity: '2 Members / Team',
                 coordinators: [
                     { name: 'mr. suriya', role: 'Organizer', phone: '89406 65007', img: 'asset/suriya.webp' },
@@ -2699,7 +2722,12 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
             // Populate Data
             modalTitle.innerText = data.title;
             modalCategory.innerText = data.category;
-            modalTime.innerText = data.time;
+            if (Array.isArray(data.time)) {
+                modalTime.innerHTML = data.time.join('<br>');
+            } else {
+                modalTime.innerHTML = data.time || '--';
+            }
+
             modalCapacity.innerText = data.capacity;
 
             // Hide/Show Time & Capacity
