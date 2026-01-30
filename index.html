@@ -784,6 +784,73 @@
         }
 
         /* --- RESPONSIVE --- */
+
+        /* --- COMPLETION POPUP --- */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10001;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            transition: opacity 0.5s ease;
+        }
+
+        .popup-content {
+            background: var(--bg-deep);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 50px rgba(0, 243, 255, 0.4);
+            animation: popupAppear 0.5s ease-out;
+        }
+
+        @keyframes popupAppear {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .popup-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .popup-body p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        .popup-body strong {
+            color: var(--primary);
+        }
+
+        .blur-content {
+            filter: blur(10px) brightness(0.7);
+            pointer-events: none;
+            user-select: none;
+            transition: filter 0.5s ease;
+        }
+
+        /* --- RESPONSIVE --- */
         /* --- RESPONSIVE --- */
         @media screen and (max-width: 1024px) {
             .container {
@@ -1169,6 +1236,8 @@
             }
         }
 
+
+
         .filter-btn.active {
             background: var(--primary);
             color: var(--bg-dark) !important;
@@ -1491,7 +1560,6 @@
                 </div>
             </div>
         </div>
-
     </section>
 
     <!-- Floating Pamphlet Card -->
@@ -2827,7 +2895,43 @@ font-size: 1.5rem; color: var(--primary);">Student Coordinators</h3>
             pamphletModal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
+
+        // --- COMPLETION POPUP LOGIC ---
+        window.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('completion-popup');
+            const mainContent = document.querySelectorAll('body > *:not(#completion-popup)');
+
+            // Show popup and apply blur
+            mainContent.forEach(el => el.classList.add('blur-content'));
+
+            window.closeCompletionPopup = function () {
+                popup.style.opacity = '0';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                    mainContent.forEach(el => el.classList.remove('blur-content'));
+                }, 500);
+            };
+        });
     </script>
+
+    <!-- COMPLETION POPUP HTML -->
+    <div id="completion-popup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2 class="text-gradient">Dream IT 2K26 Successfully Completed!</h2>
+            </div>
+            <div class="popup-body">
+                <p>We are thrilled to announce that <strong>Dream IT 2K26</strong> was completed with grand success on
+                    <strong>January 29, 2026</strong>. </p>
+                <p>A huge thank you to all the students, staff coordinators, and enthusiastic participants for making
+                    this fest an extraordinary journey. Your dedication and vibracy were truly inspiring! </p>
+                <p>The spirit of innovation continues. Stay tuned for what's next!</p>
+            </div>
+            <div class="popup-footer">
+                <button class="btn btn-primary" onclick="closeCompletionPopup()">Explore Fest Archive</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
